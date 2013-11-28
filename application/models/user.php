@@ -19,5 +19,27 @@ class User extends Datamapper
   {
     parent::__construct($id);
   }
+
+  function checkLogin($email = null, $password = null)
+  {
+    if (!$email || !$password) {
+      return false;
+    }
+
+    $user = $this->where('email', $email)
+      ->limit(1)
+      ->get();
+
+    if (!$user->result_count()) {
+      return false;
+    }
+
+    $generatedPassword = do_hash($this->salt.$password);
+    if ($generatedPassword != $this->password) {
+      return false;
+    }
+
+    return $user;
+  }
 }
 
