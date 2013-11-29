@@ -9,7 +9,6 @@ class Vault
   public function __construct()
   {
     $this->_ci = &get_instance();
-    $this->_ci->output->enable_profiler(true);
     $this->watchdog(false);
   }
 
