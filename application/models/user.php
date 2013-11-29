@@ -2,6 +2,8 @@
 
 class User extends Datamapper
 {
+  public $has_many = array('article');
+
   public $validation = array(
     'email' => array(
       'field' => 'email',
