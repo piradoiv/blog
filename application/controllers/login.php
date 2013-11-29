@@ -9,6 +9,10 @@ class Login extends CI_Controller
 
   public function index()
   {
+    if ($this->vault->isLogged() === true) {
+      redirect(base_url());
+    }
+
     $data['yield'] = $this->load->view('login');
     $this->load->view('template', $data);
   }

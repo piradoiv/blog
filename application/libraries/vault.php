@@ -39,6 +39,11 @@ class Vault
     return $this->logged;
   }
 
+  public function isLogged()
+  {
+    return $this->watchdog(false);
+  }
+
   public function login($email = null, $password = null, $redirect = false)
   {
     $_ci = &get_instance();
