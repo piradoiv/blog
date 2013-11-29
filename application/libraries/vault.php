@@ -3,7 +3,7 @@
 class Vault
 {
   private $logged = null;
-  private $user   = null;
+  public  $user   = null;
   private $_ci    = null;
 
   public function __construct()
@@ -12,9 +12,9 @@ class Vault
     $this->watchdog(false);
   }
 
-  public function watchdog($redirect = false)
+  public function watchdog($redirect = false, $forceCheck = false)
   {
-    if ($this->logged === null) {
+    if ($this->logged === null || $forceCheck) {
       $user     = new User;
       $email    = $this->_ci->session->userdata('email');
       $password = $this->_ci->session->userdata('password');
@@ -48,7 +48,7 @@ class Vault
     $this->_ci = &get_instance();
     $this->_ci->session->set_userdata('email', $email);
     $this->_ci->session->set_userdata('password', $password);
-    $this->watchdog($redirect);
+    $this->watchdog($redirect, true);
   }
 }
 

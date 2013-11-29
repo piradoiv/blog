@@ -39,7 +39,7 @@ class User extends Datamapper
       return false;
     }
 
-    return $user;
+    return $this;
   }
 }
 
