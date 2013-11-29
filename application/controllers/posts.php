@@ -5,6 +5,7 @@ class Posts extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->vault->watchdog(true);
   }
 
   public function edit($id = null)
