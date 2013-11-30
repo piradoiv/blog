@@ -26,6 +26,19 @@ class Posts extends CI_Controller
     $this->load->view('template', $data);
   }
 
+  public function drafts()
+  {
+    $posts = new Article;
+    $posts->order_by('id', 'desc')
+      ->where('published', 'no')
+      ->where_related_user($this->vault->user)
+      ->get();
+
+    $data['posts'] = $posts;
+    $data['yield'] = $this->load->view('posts/index', $data, true);
+    $this->load->view('template', $data);
+  }
+
   public function show($id = null)
   {
     $post = new Article($id);
@@ -51,6 +64,10 @@ class Posts extends CI_Controller
   {
     $post = new Article($id);
     if ($id && !$post->exists()) {
+      show_404();
+    }
+
+    if ($id && $this->vault->user->id != $post->user_id) {
       show_404();
     }
 
@@ -89,6 +106,23 @@ class Posts extends CI_Controller
     }
 
     redirect($post->permalink('edit'));
+  }
+
+  public function delete($id = null)
+  {
+    $post = new Article($id);
+
+    if (!$post->exists()) {
+      show_404();
+    }
+
+    if (!$this->vault->isLogged() || $this->vault->user->id != $post->user_id)
+    {
+      show_404();
+    }
+
+    $post->delete();
+    redirect(base_url());
   }
 }
 
