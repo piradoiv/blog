@@ -18,3 +18,5 @@ application/logs/*
 
 /codeigniter
 
+composer.lock
+/vendor
