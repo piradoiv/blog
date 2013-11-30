@@ -29,6 +29,10 @@ class Posts extends CI_Controller
       show_404();
     }
 
+    if (!$this->vault->isLogged() && $post->published != 'yes') {
+      show_404();
+    }
+
     if (current_url() != $post->permalink()) {
       redirect($post->permalink());
     }
