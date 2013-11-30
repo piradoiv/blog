@@ -79,6 +79,11 @@ class Posts extends CI_Controller
       $post->save();
     }
 
+    if ($post->published == 'yes' && !$post->published_at) {
+      $post->published_at = date('Y-m-d H:i:s');
+      $post->save();
+    }
+
     redirect($post->permalink('edit'));
   }
 }
