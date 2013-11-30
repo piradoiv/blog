@@ -26,6 +26,7 @@
       <?= form_submit('submit', 'Save') ?>
       <?php if (isset($post->id)): ?>
       <a href="<?= $post->permalink() ?>">View post</a>
+      <a href="<?= $post->permalink('delete') ?>" onclick="return confirm('Are you sure?')">Delete</a>
       <?php endif ?>
     </p>
     <?= form_close() ?>

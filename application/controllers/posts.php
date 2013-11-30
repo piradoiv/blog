@@ -103,5 +103,22 @@ class Posts extends CI_Controller
 
     redirect($post->permalink('edit'));
   }
+
+  public function delete($id = null)
+  {
+    $post = new Article($id);
+
+    if (!$post->exists()) {
+      show_404();
+    }
+
+    if (!$this->vault->isLogged() || $this->vault->user->id != $post->user_id)
+    {
+      show_404();
+    }
+
+    $post->delete();
+    redirect(base_url());
+  }
 }
 
