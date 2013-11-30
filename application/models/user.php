@@ -43,5 +43,10 @@ class User extends Datamapper
 
     return $this;
   }
+
+  function permalink($page = null)
+  {
+    return site_url("@{$this->username}/{$page}");
+  }
 }
 
