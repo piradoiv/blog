@@ -15,6 +15,8 @@ class Article extends Datamapper
     )
   );
 
+  private $render = null;
+
   public function __construct($id = null)
   {
     parent::__construct($id);
@@ -27,7 +29,16 @@ class Article extends Datamapper
 
   function render()
   {
-    return $this->contents;
+    if (!$this->render) {
+      $markdown = $this->contents;
+      $markdown = str_replace('###',   '#####', $markdown);
+      $markdown = str_replace('##',    '####', $markdown);
+      $markdown = str_replace('#',     '###', $markdown);
+
+      $this->render = \Michelf\Markdown::defaultTransform($markdown);
+    }
+
+    return $this->render;
   }
 }
 
