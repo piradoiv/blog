@@ -26,6 +26,19 @@ class Posts extends CI_Controller
     $this->load->view('template', $data);
   }
 
+  public function drafts()
+  {
+    $posts = new Article;
+    $posts->order_by('id', 'desc')
+      ->where('published', 'no')
+      ->where_related_user($this->vault->user)
+      ->get();
+
+    $data['posts'] = $posts;
+    $data['yield'] = $this->load->view('posts/index', $data, true);
+    $this->load->view('template', $data);
+  }
+
   public function show($id = null)
   {
     $post = new Article($id);

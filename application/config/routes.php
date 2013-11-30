@@ -43,7 +43,7 @@ $route['404_override']         = '';
 $route['(:any)-(:num)']        = 'posts/show/$2';
 $route['(:any)-(:num)/edit']   = 'posts/edit/$2';
 $route['@(:any)/new-post']     = 'posts/create';
-
+$route['@(:any)/drafts']       = 'posts/drafts';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
