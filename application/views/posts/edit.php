@@ -1,6 +1,6 @@
 
 <div class="grid-container">
-  <div class="grid-50">
+  <div class="grid-50 push-25">
     <?= form_open("posts/update/{$post->id}") ?>
     <p>
       <?= form_label('Title', 'title') ?>
@@ -15,10 +15,14 @@
       <?= form_input('slug', $post->slug) ?>
     </p>
     <?= form_textarea('contents', $post->contents) ?>
-    <?= form_dropdown('published',
-      array('no' => 'No', 'yes' => 'Yes'), $post->published)
-    ?>
-    <?= form_submit('submit', 'Save') ?>
+
+    <p>
+      <?= form_label('Published') ?>
+      <?= form_dropdown('published',
+        array('no' => 'No', 'yes' => 'Yes'), $post->published)
+      ?>
+    </p>
+    <p><?= form_submit('submit', 'Save') ?></p>
     <?= form_close() ?>
   </div>
   <div class="grid-50">
