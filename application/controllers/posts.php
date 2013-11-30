@@ -15,6 +15,13 @@ class Posts extends CI_Controller
   public function index()
   {
     $posts = new Article;
+    $posts->order_by('published_at', 'desc')
+      ->order_by('id', 'desc');
+
+    if (!$this->vault->isLogged()) {
+      $posts->where('published', 'yes');
+    }
+
     $posts->get();
 
     $data['posts'] = $posts;
