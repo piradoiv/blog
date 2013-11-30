@@ -11,7 +11,7 @@
       <?= form_input('subtitle', $post->subtitle) ?>
     </p>
     <p>
-      <?= form_label(site_url('p').'/', 'slug') ?>
+      <?= form_label(base_url(), 'slug') ?>
       <?= form_input('slug', $post->slug) ?>
     </p>
     <?= form_textarea('contents', $post->contents) ?>
