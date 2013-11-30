@@ -42,6 +42,7 @@ $route['default_controller']   = 'posts';
 $route['404_override']         = '';
 $route['(:any)-(:num)']        = 'posts/show/$2';
 $route['(:any)-(:num)/edit']   = 'posts/edit/$2';
+$route['@(:any)/new-post']     = 'posts/create';
 
 
 /* End of file routes.php */
