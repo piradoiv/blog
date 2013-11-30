@@ -67,6 +67,10 @@ class Posts extends CI_Controller
       show_404();
     }
 
+    if ($id && $this->vault->user->id != $post->user_id) {
+      show_404();
+    }
+
     $data['post']  = $post;
     $data['yield'] = $this->load->view('posts/edit', $data, true);
     $this->load->view('template', $data);
