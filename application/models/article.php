@@ -22,7 +22,7 @@ class Article extends Datamapper
 
   function permalink($page = null)
   {
-    return site_url("p/{$this->slug}-{$this->id}/{$page}");
+    return site_url("{$this->slug}-{$this->id}/{$page}");
   }
 
   function render()

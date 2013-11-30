@@ -5,7 +5,11 @@ class Posts extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->vault->watchdog(true);
+    if (!$this->vault->isLogged()) {
+      if ($this->uri->segment(2) || current_url() == site_url('posts')) {
+        show_404();
+      }
+    }
   }
 
   public function index()

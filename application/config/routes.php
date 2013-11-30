@@ -40,8 +40,8 @@
 
 $route['default_controller']   = 'home';
 $route['404_override']         = '';
-$route['p/(:any)-(:num)']      = 'posts/show/$2';
-$route['p/(:any)-(:num)/edit'] = 'posts/edit/$2';
+$route['(:any)-(:num)']        = 'posts/show/$2';
+$route['(:any)-(:num)/edit']   = 'posts/edit/$2';
 
 
 /* End of file routes.php */
