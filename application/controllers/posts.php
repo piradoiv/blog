@@ -18,11 +18,8 @@ class Posts extends CI_Controller
     $posts->order_by('published_at', 'desc')
       ->order_by('id', 'desc');
 
-    if (!$this->vault->isLogged()) {
-      $posts->where('published', 'yes');
-    }
-
-    $posts->get();
+    $posts->where('published', 'yes')
+      ->get();
 
     $data['posts'] = $posts;
     $data['yield'] = $this->load->view('posts/index', $data, true);
