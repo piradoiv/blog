@@ -8,6 +8,33 @@ class Posts extends CI_Controller
     $this->vault->watchdog(true);
   }
 
+  public function index()
+  {
+    $posts = new Article;
+    $posts->get();
+
+    $data['posts'] = $posts;
+    $data['yield'] = $this->load->view('posts/index', $data, true);
+    $this->load->view('template', $data);
+  }
+
+  public function show($id = null)
+  {
+    $post = new Article($id);
+    if (!$post->exists()) {
+      show_404();
+    }
+
+    if (current_url() != $post->permalink()) {
+      redirect($post->permalink());
+    }
+
+    $data['pageTitle'] = $post->title;
+    $data['post']      = $post;
+    $data['yield']     = $this->load->view('posts/show', $data, true);
+    $this->load->view('template', $data);
+  }
+
   public function edit($id = null)
   {
     $post = new Article($id);
@@ -44,7 +71,7 @@ class Posts extends CI_Controller
       $post->save();
     }
 
-    redirect("posts/edit/{$post->id}");
+    redirect($post->permalink('edit'));
   }
 }
 
