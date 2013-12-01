@@ -5,20 +5,14 @@ class Posts extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    if (!$this->vault->isLogged()) {
-      if ($this->uri->segment(2) || current_url() == site_url('posts')) {
-        show_404();
-      }
-    }
   }
 
   public function index()
   {
     $posts = new Article;
     $posts->order_by('published_at', 'desc')
-      ->order_by('id', 'desc');
-
-    $posts->where('published', 'yes')
+      ->order_by('id', 'desc')
+      ->where('published', 'yes')
       ->get();
 
     $data['posts'] = $posts;
@@ -28,6 +22,10 @@ class Posts extends CI_Controller
 
   public function drafts()
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $posts = new Article;
     $posts->order_by('id', 'desc')
       ->where('published', 'no')
@@ -62,6 +60,10 @@ class Posts extends CI_Controller
 
   public function edit($id = null)
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $post = new Article($id);
     if ($id && !$post->exists()) {
       show_404();
@@ -78,11 +80,19 @@ class Posts extends CI_Controller
 
   public function create()
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $this->edit();
   }
 
   public function update($id = null)
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $post = new Article($id);
     if ($id && !$post->exists()) {
       show_404();
@@ -110,13 +120,17 @@ class Posts extends CI_Controller
 
   public function delete($id = null)
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $post = new Article($id);
 
     if (!$post->exists()) {
       show_404();
     }
 
-    if (!$this->vault->isLogged() || $this->vault->user->id != $post->user_id)
+    if ($this->vault->user->id != $post->user_id)
     {
       show_404();
     }
