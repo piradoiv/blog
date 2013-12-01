@@ -2,6 +2,8 @@
 
 class User extends Datamapper
 {
+  public $has_many = array('article');
+
   public $validation = array(
     'email' => array(
       'field' => 'email',
@@ -40,6 +42,11 @@ class User extends Datamapper
     }
 
     return $this;
+  }
+
+  function permalink($page = null)
+  {
+    return site_url("@{$this->username}/{$page}");
   }
 }
 

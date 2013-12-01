@@ -14,8 +14,40 @@
 <!--[if (lt IE 9) & (!IEMobile)]>
   <link rel="stylesheet" href="<?= base_url() ?>/unsemantic/stylesheets/ie.css" />
 <![endif]-->
+  <link rel="stylesheet" href="<?= base_url() ?>/css/app.css" />
 </head>
 <body>
+
+  <div id="navigation">
+    <div class="grid-container">
+      <div class="grid-100">
+        <ul>
+          <li id="nav-home">
+            <a href="<?= base_url() ?>">Home</a>
+          </li>
+          <?php if ($this->vault->isLogged()): ?>
+          <li id="nav-new-post">
+            <a href="<?= $this->vault->user->permalink('new-post') ?>">
+              New post
+            </a>
+          </li>
+          <li id="nav-drafts">
+            <a href="<?= $this->vault->user->permalink('drafts') ?>">
+              Drafts
+            </a>
+          </li>
+          <li id="nav-logout">
+            <a href="<?= site_url('logout') ?>">Logout</a>
+          </li>
+          <?php else: ?>
+          <li id="nav-login">
+            <a href="<?= site_url('login') ?>">Login</a>
+          </li>
+          <?php endif ?>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <?= isset($yield) ? $yield : null ?>
 

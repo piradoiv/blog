@@ -9,7 +9,7 @@ class Install extends CI_Controller
     // Don't allow to use this controller
     // if there are already users on
     // the database.
-    $users = new $this->user;
+    $users = new User;
     if ($users->count() > 0) {
       show_404();
     }
