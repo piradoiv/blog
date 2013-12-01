@@ -22,25 +22,25 @@
     <div class="grid-container">
       <div class="grid-100">
         <ul>
-          <li>
+          <li id="nav-home">
             <a href="<?= base_url() ?>">Home</a>
           </li>
           <?php if ($this->vault->isLogged()): ?>
-          <li>
+          <li id="nav-new-post">
             <a href="<?= $this->vault->user->permalink('new-post') ?>">
               New post
             </a>
           </li>
-          <li>
+          <li id="nav-drafts">
             <a href="<?= $this->vault->user->permalink('drafts') ?>">
               Drafts
             </a>
           </li>
-          <li>
+          <li id="nav-logout">
             <a href="<?= site_url('logout') ?>">Logout</a>
           </li>
           <?php else: ?>
-          <li>
+          <li id="nav-login">
             <a href="<?= site_url('login') ?>">Login</a>
           </li>
           <?php endif ?>
