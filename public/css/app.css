@@ -23,6 +23,7 @@ img {
 
 #navigation {
   text-align: center;
+  margin: 25px 0;
 }
 
 #navigation ul {
@@ -41,5 +42,35 @@ img {
 
 #navigation li:last-child:after {
   content: none;
+}
+
+#login-box {
+  text-align: center;
+}
+
+#login-box label, #login-box input {
+  display: block;
+}
+
+#login-box input {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  padding: 5px;
+  color: #333;
+}
+
+#login-box input[type="submit"] {
+  margin: 25px inherit;
+}
+
+.post h2.title {
+  margin: 0;
+  padding: 0;
+}
+
+.post h2.title a {
+  text-decoration: none;
+  color: #222;
 }
 
