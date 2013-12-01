@@ -5,24 +5,32 @@ class Posts extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    if (!$this->vault->isLogged()) {
-      if ($this->uri->segment(2) || current_url() == site_url('posts')) {
-        show_404();
-      }
-    }
   }
 
   public function index()
   {
     $posts = new Article;
     $posts->order_by('published_at', 'desc')
-      ->order_by('id', 'desc');
+      ->order_by('id', 'desc')
+      ->where('published', 'yes')
+      ->get();
 
+    $data['posts'] = $posts;
+    $data['yield'] = $this->load->view('posts/index', $data, true);
+    $this->load->view('template', $data);
+  }
+
+  public function drafts()
+  {
     if (!$this->vault->isLogged()) {
-      $posts->where('published', 'yes');
+      show_404();
     }
 
-    $posts->get();
+    $posts = new Article;
+    $posts->order_by('id', 'desc')
+      ->where('published', 'no')
+      ->where_related_user($this->vault->user)
+      ->get();
 
     $data['posts'] = $posts;
     $data['yield'] = $this->load->view('posts/index', $data, true);
@@ -52,8 +60,16 @@ class Posts extends CI_Controller
 
   public function edit($id = null)
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $post = new Article($id);
     if ($id && !$post->exists()) {
+      show_404();
+    }
+
+    if ($id && $this->vault->user->id != $post->user_id) {
       show_404();
     }
 
@@ -64,11 +80,19 @@ class Posts extends CI_Controller
 
   public function create()
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $this->edit();
   }
 
   public function update($id = null)
   {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
     $post = new Article($id);
     if ($id && !$post->exists()) {
       show_404();
@@ -92,6 +116,27 @@ class Posts extends CI_Controller
     }
 
     redirect($post->permalink('edit'));
+  }
+
+  public function delete($id = null)
+  {
+    if (!$this->vault->isLogged()) {
+      show_404();
+    }
+
+    $post = new Article($id);
+
+    if (!$post->exists()) {
+      show_404();
+    }
+
+    if ($this->vault->user->id != $post->user_id)
+    {
+      show_404();
+    }
+
+    $post->delete();
+    redirect(base_url());
   }
 }
 
