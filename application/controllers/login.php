@@ -9,7 +9,7 @@ class Login extends CI_Controller
 
   public function index()
   {
-    $data['yield'] = $this->load->view('login');
+    $data['yield'] = $this->load->view('login', null, true);
     $this->load->view('template', $data);
   }
 
