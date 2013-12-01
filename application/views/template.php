@@ -20,18 +20,30 @@
   <div id="navigation">
     <div class="grid-container">
       <div class="grid-100">
-        <a href="<?= base_url() ?>">Home</a>
-        <?php if ($this->vault->isLogged()): ?>
-        <a href="<?= $this->vault->user->permalink('new-post') ?>">
-          New post
-        </a>
-        <a href="<?= $this->vault->user->permalink('drafts') ?>">
-          Drafts
-        </a>
-        <a href="<?= site_url('logout') ?>">Logout</a>
-        <?php else: ?>
-        <a href="<?= site_url('login') ?>">Login</a>
-        <?php endif ?>
+        <ul>
+          <li>
+            <a href="<?= base_url() ?>">Home</a>
+          </li>
+          <?php if ($this->vault->isLogged()): ?>
+          <li>
+            <a href="<?= $this->vault->user->permalink('new-post') ?>">
+              New post
+            </a>
+          </li>
+          <li>
+            <a href="<?= $this->vault->user->permalink('drafts') ?>">
+              Drafts
+            </a>
+          </li>
+          <li>
+            <a href="<?= site_url('logout') ?>">Logout</a>
+          </li>
+          <?php else: ?>
+          <li>
+            <a href="<?= site_url('login') ?>">Login</a>
+          </li>
+          <?php endif ?>
+        </ul>
       </div>
     </div>
   </div>
