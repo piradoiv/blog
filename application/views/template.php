@@ -14,6 +14,7 @@
 <!--[if (lt IE 9) & (!IEMobile)]>
   <link rel="stylesheet" href="<?= base_url() ?>/unsemantic/stylesheets/ie.css" />
 <![endif]-->
+  <link rel="stylesheet" href="<?= base_url() ?>/css/app.css" />
 </head>
 <body>
 
