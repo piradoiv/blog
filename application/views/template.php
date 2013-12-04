@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="<?= base_url() ?>/unsemantic/stylesheets/ie.css" />
 <![endif]-->
   <link rel="stylesheet" href="<?= base_url() ?>/css/app.css" />
+  <link rel="stylesheet" href="<?= base_url() ?>codemirror/codemirror.css">
+  <script src="<?= base_url() ?>codemirror/codemirror.js"></script>
 </head>
 <body>
 
@@ -52,6 +54,18 @@
   <?= isset($yield) ? $yield : null ?>
 
   <script src="<?= base_url() ?>/unsemantic/javascripts/jquery.js"></script>
+  <script>
+    $(function() {
+      var cmCounter = 0;
+      $('.codemirror').each(function() {
+        $(this).attr('id', 'codemirror-' + cmCounter);
+        var myTextarea = $('#codemirror-' + cmCounter)[0];
+        var editor = CodeMirror.fromTextArea(myTextarea, {
+          mode: "text/html"
+        });
+      })
+    });
+  </script>
 </body>
 </html>
 

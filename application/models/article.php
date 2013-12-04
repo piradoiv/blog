@@ -39,6 +39,8 @@ class Article extends Datamapper
       $html = \Michelf\Markdown::defaultTransform($markdown);
       $html = str_replace('&amp;lt;', '&#60;', $html);
       $html = str_replace('&amp;gt;', '&#62;', $html);
+      $html = str_replace('<pre><code>', '<textarea class="codemirror">', $html);
+      $html = str_replace('</code></pre>', '</textarea>', $html);
 
       $this->render = $html;
     }
