@@ -12,6 +12,14 @@ body {
   background-color: #fff;
 }
 
+h1, h2, h3, h4, h5 {
+  line-height: 40px;
+}
+
+h2 {
+  font-weight: normal;
+}
+
 pre {
  font-size: 16px;
  line-height: 25px;
