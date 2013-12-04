@@ -17,6 +17,11 @@
     <?= form_textarea('contents', $post->contents) ?>
 
     <p>
+      <?= form_label('Tags', 'tags') ?>
+      <?= form_input('tags', $post->implodeTags()) ?>
+    </p>
+
+    <p>
       <?= form_label('Published') ?>
       <?= form_dropdown('published',
         array('no' => 'No', 'yes' => 'Yes'), $post->published)
