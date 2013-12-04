@@ -82,3 +82,8 @@ img {
   color: #222;
 }
 
+.CodeMirror {
+  font-size: 14px;
+  font-family: monospace;
+}
+

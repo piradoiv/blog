@@ -14,7 +14,12 @@
 <!--[if (lt IE 9) & (!IEMobile)]>
   <link rel="stylesheet" href="<?= base_url() ?>/unsemantic/stylesheets/ie.css" />
 <![endif]-->
-  <link rel="stylesheet" href="<?= base_url() ?>/css/app.css" />
+  <link rel="stylesheet" href="<?= base_url() ?>css/app.css" />
+  <script src="<?= base_url() ?>codemirror/codemirror.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/php/php.js"></script>
+  <link rel="stylesheet" href="<?= base_url() ?>codemirror/codemirror.css">
+  <link rel="stylesheet" href="<?= base_url() ?>codemirror/theme/blackboard.css">
+
 </head>
 <body>
 
@@ -52,6 +57,19 @@
   <?= isset($yield) ? $yield : null ?>
 
   <script src="<?= base_url() ?>/unsemantic/javascripts/jquery.js"></script>
+  <script>
+    $(function() {
+      var cmCounter = 0;
+      $('.codemirror').each(function() {
+        $(this).attr('id', 'codemirror-' + cmCounter);
+        var myTextarea = $('#codemirror-' + cmCounter)[0];
+        var editor = CodeMirror.fromTextArea(myTextarea, {
+          theme: 'blackboard',
+          lineNumbers: true
+        });
+      })
+    });
+  </script>
 </body>
 </html>
 
