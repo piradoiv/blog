@@ -42,6 +42,27 @@ class Article extends Datamapper
     return $this->render;
   }
 
+  function explodeTags($string = null)
+  {
+    $tags = explode(',', $string);
+    $oldTags = $this->tag->get();
+    $this->delete($oldTags->all);
+    $oldTags->cleanOrphans();
+
+    foreach ($tags as $current) {
+      $current = trim($current);
+      $tag = new Tag;
+      $tag->where('name', $current)->get();
+      if (!$tag->result_count()) {
+        $tag->name          = $current;
+        $tag->friendly_name = $tag->friendlyName();
+        $tag->save();
+      }
+
+      $this->save($tag);
+    }
+  }
+
   function implodeTags()
   {
     $this->tag->get();
@@ -51,7 +72,7 @@ class Article extends Datamapper
       array_push($tags, $current->name);
     }
 
-    $result = implode(',', $tags);
+    $result = implode(', ', $tags);
 
     return $result;
   }
