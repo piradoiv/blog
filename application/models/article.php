@@ -41,5 +41,19 @@ class Article extends Datamapper
 
     return $this->render;
   }
+
+  function implodeTags()
+  {
+    $this->tag->get();
+    $tags = array();
+
+    foreach ($this->tag as $current) {
+      array_push($tags, $current->name);
+    }
+
+    $result = implode(',', $tags);
+
+    return $result;
+  }
 }
 
