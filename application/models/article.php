@@ -2,7 +2,8 @@
 
 class Article extends Datamapper
 {
-  public $has_one = array('user');
+  public $has_one  = array('user');
+  public $has_many = array('tag');
 
   public $validation = array(
     'title' => array(
