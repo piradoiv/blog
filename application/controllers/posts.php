@@ -115,6 +115,8 @@ class Posts extends CI_Controller
       $post->save();
     }
 
+    $post->explodeTags($this->input->post('tags', true));
+
     redirect($post->permalink('edit'));
   }
 
