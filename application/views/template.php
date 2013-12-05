@@ -17,8 +17,13 @@
   <link rel="stylesheet" href="<?= base_url() ?>css/app.css" />
   <script src="<?= base_url() ?>codemirror/codemirror.js"></script>
   <script src="<?= base_url() ?>codemirror/mode/php/php.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/xml/xml.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/javascript/javascript.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/css/css.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="<?= base_url() ?>codemirror/mode/clike/clike.js"></script>
   <link rel="stylesheet" href="<?= base_url() ?>codemirror/codemirror.css">
-  <link rel="stylesheet" href="<?= base_url() ?>codemirror/theme/blackboard.css">
+  <link rel="stylesheet" href="<?= base_url() ?>codemirror/theme/monokai.css">
 
 </head>
 <body>
@@ -64,8 +69,9 @@
         $(this).attr('id', 'codemirror-' + cmCounter);
         var myTextarea = $('#codemirror-' + cmCounter)[0];
         var editor = CodeMirror.fromTextArea(myTextarea, {
-          theme: 'blackboard',
-          lineNumbers: true
+          theme: 'monokai',
+          lineNumbers: true,
+          mode: 'application/x-httpd-php'
         });
       })
     });
