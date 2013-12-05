@@ -32,7 +32,7 @@ class Install extends CI_Controller
       $this->_error();
     }
 
-    $user     = new $this->user;
+    $user     = new User;
     $salt     = do_hash(rand(0,999999999));
 
     $user->email    = $email;
