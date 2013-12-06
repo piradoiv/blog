@@ -42,6 +42,9 @@ class Article extends Datamapper
       $html = str_replace('<pre><code>', '<textarea class="codemirror">', $html);
       $html = str_replace('</code></pre>', '</textarea>', $html);
 
+      // Permalinks
+      $html = preg_replace('/{{permalink-(.*)}}/', '/permalink-$1', $html);
+
       $this->render = $html;
     }
 
