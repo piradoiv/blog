@@ -62,20 +62,7 @@
   <?= isset($yield) ? $yield : null ?>
 
   <script src="<?= base_url() ?>/unsemantic/javascripts/jquery.js"></script>
-  <script>
-    $(function() {
-      var cmCounter = 0;
-      $('.codemirror').each(function() {
-        $(this).attr('id', 'codemirror-' + cmCounter);
-        var myTextarea = $('#codemirror-' + cmCounter)[0];
-        var editor = CodeMirror.fromTextArea(myTextarea, {
-          theme: 'monokai',
-          lineNumbers: true,
-          mode: 'application/x-httpd-php'
-        });
-      })
-    });
-  </script>
+  <script src="<?= base_url() ?>/js/app.js"></script>
 </body>
 </html>
 
