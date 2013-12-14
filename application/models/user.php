@@ -48,5 +48,18 @@ class User extends Datamapper
   {
     return site_url("@{$this->username}/{$page}");
   }
+
+  function avatar($size = 50)
+  {
+    $hash   = md5($this->email);
+    $avatar = "http://www.gravatar.com/avatar/{$hash}?s={$size}";
+
+    return $avatar;
+  }
+
+  function fullName()
+  {
+    return "{$this->name} {$this->surname}";
+  }
 }
 

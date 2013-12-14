@@ -87,3 +87,11 @@ img {
   font-family: monospace;
 }
 
+.article-author {
+  padding: 30px inherit;
+}
+
+img.avatar {
+  border-radius: 50px;
+}
+

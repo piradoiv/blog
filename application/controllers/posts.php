@@ -39,7 +39,8 @@ class Posts extends CI_Controller
 
   public function show($id = null)
   {
-    $post = new Article($id);
+    $post   = new Article($id);
+    $author = $post->user->get();
     if (!$post->exists()) {
       show_404();
     }
@@ -54,6 +55,7 @@ class Posts extends CI_Controller
 
     $data['pageTitle'] = $post->title;
     $data['post']      = $post;
+    $data['author']    = $author;
     $data['yield']     = $this->load->view('posts/show', $data, true);
     $this->load->view('template', $data);
   }
