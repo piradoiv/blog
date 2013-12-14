@@ -46,6 +46,9 @@
               Drafts
             </a>
           </li>
+          <li id="nav-settings">
+            <a href="<?= site_url('settings') ?>">Settings</a>
+          </li>
           <li id="nav-logout">
             <a href="<?= site_url('logout') ?>">Logout</a>
           </li>
