@@ -1,10 +1,10 @@
-$ ->
-  updatePreview = ->
-    $.post previewUrl, $('form').serialize(), (data) ->
-      $('.article-preview').html data
+updatePreview = ->
+  $.post previewUrl, $('form').serialize(), (data) ->
+    $('.article-preview').html data
+    lookForCodemirror()
 
-  if articleId?
+if articleId?
+  updatePreview()
+  $('input, textarea').on 'keyup', ->
     updatePreview()
-    $('input, textarea').on 'keyup', ->
-      updatePreview()
 
