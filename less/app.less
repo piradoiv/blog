@@ -1,0 +1,27 @@
+@import "colors.less";
+@import "typography.less";
+@import "images.less";
+@import "headings.less";
+@import "navigation.less";
+@import "login.less";
+@import "codemirror.less";
+@import "article-editor.less";
+@import "posts.less";
+
+body {
+  background-color: @background-color;
+}
+
+a {
+  color: @font-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: darken(@font-link-color, 10%);
+  }
+}
+
+.centered {
+  text-align: center;
+}
+

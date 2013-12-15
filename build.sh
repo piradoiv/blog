@@ -1,2 +1,4 @@
 #!/bin/bash
-coffee -w -j public/js/app.js -c coffee/*coffee
+coffee -j public/js/app.js -c coffee/*coffee
+lessc --yui-compress less/app.less public/css/app.css
+
