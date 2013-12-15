@@ -8,11 +8,10 @@
         <img src="<?= $author->avatar(110) ?>" class="avatar" alt="<?= $author->username ?>" />
       </div>
       <div class="grid-80">
-        <strong>
-          by <a href="<?= $author->permalink() ?>"><?= $author->fullName() ?></a>
-        </strong>
-        <br />
-        <i><?= $author->bio ?></i>
+        <h3>
+          <a href="<?= $author->permalink() ?>"><?= $author->fullName() ?></a>
+        </h3>
+        <p><?= $author->bio ?></p>
       </div>
     </div>
   </div>
