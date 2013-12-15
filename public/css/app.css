@@ -1,23 +1,43 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
-
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lusitana:400,700);
 
 body, p, h1, h2, h3, h4, h5 {
   font-family: 'Droid Serif', serif;
+  font-weight: 400;
 }
 
 body {
   font-size: 20px;
   line-height: 30px;
-  color: #222;
+  color: #555;
   background-color: #fff;
+}
+
+a {
+  color: #58a;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5 {
   line-height: 40px;
+  color: #151515;
 }
 
-h2 {
-  font-weight: normal;
+h1, h2  {
+  font-family: 'Lusitana';
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.author-heading {
+  border: 1px solid #aaa;
+  border-width: 1px 0;
+  padding: 15px inherit;
+  text-align: center;
+  text-transform: uppercase;
+  color: #444;
 }
 
 pre {
@@ -84,7 +104,7 @@ img {
 
 .CodeMirror {
   font-size: 14px;
-  font-family: monospace;
+  font-family: monospace !important;
   height: auto !important;
 }
 
