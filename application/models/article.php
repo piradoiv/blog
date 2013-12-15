@@ -16,8 +16,6 @@ class Article extends Datamapper
     )
   );
 
-  private $render = null;
-
   public function __construct($id = null)
   {
     parent::__construct($id);
@@ -46,6 +44,7 @@ class Article extends Datamapper
       $html = preg_replace('/{{permalink-(.*)}}/', '/permalink-$1', $html);
 
       $this->render = $html;
+      $this->save();
     }
 
     return $this->render;
