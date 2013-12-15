@@ -8,7 +8,10 @@
     cm = CodeMirror.fromTextArea(id, {
       theme: 'monokai',
       lineNumbers: true,
-      mode: 'application/x-httpd-php'
+      mode: 'application/x-httpd-php',
+      lineWrapping: true,
+      tabSize: 2,
+      indentWithTabs: false
     });
     return cm.on("change", function(cm, change) {
       return id.innerHTML = cm.getValue();
