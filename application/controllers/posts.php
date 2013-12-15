@@ -56,6 +56,7 @@ class Posts extends CI_Controller
     $data['pageTitle'] = $post->title;
     $data['post']      = $post;
     $data['author']    = $author;
+    $data['yield']     = $this->load->view('posts/render', $data, true);
     $data['yield']     = $this->load->view('posts/show', $data, true);
     $this->load->view('template', $data);
   }
@@ -141,6 +142,20 @@ class Posts extends CI_Controller
 
     $post->delete();
     redirect(base_url());
+  }
+
+  public function preview()
+  {
+    $post = new Article;
+    $post->title    = $this->input->post('title', true);
+    $post->subtitle = $this->input->post('subtitle', true);
+    $post->contents = $this->input->post('contents', true);
+
+    $data = array(
+      'post'   => $post,
+      'author' => $this->vault->user
+    );
+    $this->load->view('posts/render', $data);
   }
 }
 

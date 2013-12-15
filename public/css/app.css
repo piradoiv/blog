@@ -85,6 +85,17 @@ img {
 .CodeMirror {
   font-size: 14px;
   font-family: monospace;
+  font-weight: bold;
+  height: auto !important;
+}
+
+.CodeMirror-scroll {
+  max-height: 300px;
+}
+
+.article-editor {
+  position: fixed;
+  width: 40%;
 }
 
 .article-author {
