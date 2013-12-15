@@ -41,7 +41,9 @@ class Subscribe extends CI_Controller
     if (!$this->agent->is_referral()) {
       show_404();
     }
-    $this->load->view('template');
+
+    $data['yield'] = $this->load->view('subscribe/thanks', null, true);
+    $this->load->view('template', $data);
   }
 }
 
