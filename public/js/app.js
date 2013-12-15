@@ -10,7 +10,6 @@ $(function()
 
   function useEditorOn(id)
   {
-    console.log(id);
     CodeMirror.fromTextArea(id, {
       theme: 'monokai',
       lineNumbers: true,
