@@ -3,7 +3,7 @@ useEditorOn = (id) ->
     theme:          'monokai',
     lineNumbers:    true,
     mode:           'application/x-httpd-php',
-    lineWrapping:   true,
+    lineWrapping:   false,
     tabSize:        2,
     indentWithTabs: false
 
