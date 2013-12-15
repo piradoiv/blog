@@ -1,7 +1,13 @@
+canUpdatePreview = true
 updatePreview = ->
+  if !canUpdatePreview
+    return false
+
+  canUpdatePreview = false
   $.post previewUrl, $('form').serialize(), (data) ->
     $('.article-preview').html data
     lookForCodemirror()
+    canUpdatePreview = true
 
 if articleId?
   cm = CodeMirror.fromTextArea $('.article-contents')[0],
