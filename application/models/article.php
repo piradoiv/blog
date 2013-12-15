@@ -16,8 +16,6 @@ class Article extends Datamapper
     )
   );
 
-  private $render = null;
-
   public function __construct($id = null)
   {
     parent::__construct($id);
@@ -28,13 +26,10 @@ class Article extends Datamapper
     return site_url("{$this->slug}-{$this->id}/{$page}");
   }
 
-  function render()
+  function render($store = false, $force = false)
   {
-    if (!$this->render) {
+    if (!$this->render || $force) {
       $markdown = $this->contents;
-      $markdown = str_replace('###',   '#####', $markdown);
-      $markdown = str_replace('##',    '####', $markdown);
-      $markdown = str_replace('#',     '###', $markdown);
 
       $html = \Michelf\Markdown::defaultTransform($markdown);
       $html = str_replace('&amp;lt;', '&#60;', $html);
@@ -46,6 +41,10 @@ class Article extends Datamapper
       $html = preg_replace('/{{permalink-(.*)}}/', '/permalink-$1', $html);
 
       $this->render = $html;
+
+      if ($store) {
+        $this->save();
+      }
     }
 
     return $this->render;
