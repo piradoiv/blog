@@ -3,10 +3,15 @@
   var lookForCodemirror, updatePreview, useEditorOn;
 
   useEditorOn = function(id) {
-    return CodeMirror.fromTextArea(id, {
+    var cm;
+
+    cm = CodeMirror.fromTextArea(id, {
       theme: 'monokai',
       lineNumbers: true,
       mode: 'application/x-httpd-php'
+    });
+    return cm.on("change", function(cm, change) {
+      return id.innerHTML = cm.getValue();
     });
   };
 

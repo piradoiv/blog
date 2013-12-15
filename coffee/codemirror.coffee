@@ -1,8 +1,11 @@
 useEditorOn = (id) ->
-  CodeMirror.fromTextArea id,
+  cm = CodeMirror.fromTextArea id,
     theme:       'monokai',
     lineNumbers: true,
     mode:        'application/x-httpd-php'
+
+  cm.on "change", (cm, change) ->
+    id.innerHTML = cm.getValue()
 
 lookForCodemirror = ->
   cmCounter = 0
