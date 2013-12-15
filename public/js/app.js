@@ -34,6 +34,7 @@
   };
 
   if (typeof articleId !== "undefined" && articleId !== null) {
+    useEditorOn($('.article-contents')[0]);
     updatePreview();
     $('input, textarea').on('keyup', function() {
       return updatePreview();

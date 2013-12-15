@@ -89,6 +89,7 @@ img {
 
 .article-editor {
   position: fixed;
+  width: 40%;
 }
 
 .article-author {

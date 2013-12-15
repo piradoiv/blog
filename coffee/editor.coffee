@@ -4,6 +4,7 @@ updatePreview = ->
     lookForCodemirror()
 
 if articleId?
+  useEditorOn $('.article-contents')[0]
   updatePreview()
   $('input, textarea').on 'keyup', ->
     updatePreview()

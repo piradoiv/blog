@@ -15,7 +15,7 @@
         <?= form_label(base_url(), 'slug') ?>
         <?= form_input('slug', $post->slug) ?>
       </p>
-      <?= form_textarea('contents', $post->contents) ?>
+      <?= form_textarea('contents', $post->contents, 'class="article-contents"') ?>
 
       <p>
         <?= form_label('Tags', 'tags') ?>
