@@ -1,0 +1,21 @@
+#navigation {
+  text-align: center;
+  margin: 25px 0;
+
+  ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  li {
+    display: inline;
+    &:after {
+      content: '|';
+    }
+    &:last-child:after {
+      content: none;
+    }
+  }
+}
+
