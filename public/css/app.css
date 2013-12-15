@@ -87,6 +87,10 @@ img {
   font-family: monospace;
 }
 
+.article-editor {
+  position: fixed;
+}
+
 .article-author {
   padding: 30px inherit;
 }
