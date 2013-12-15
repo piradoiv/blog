@@ -1,15 +1,17 @@
 
-    <h1>
-      <?= $post->title ?>
-    </h1>
-    <h2><?= $post->subtitle ?></h2>
+    <div class="post">
+      <h1>
+        <?= $post->title ?>
+      </h1>
+      <h2><?= $post->subtitle ?></h2>
 
-    <?php if ($this->vault->isLogged() &&
-      $post->user_id == $this->vault->user->id): ?>
-    <p>
-      [ <a href="<?= $post->permalink('edit') ?>">Edit</a> ]
-    </p>
-    <?php endif ?>
+      <?php if ($this->vault->isLogged() &&
+        $post->user_id == $this->vault->user->id): ?>
+      <p>
+        [ <a href="<?= $post->permalink('edit') ?>">Edit</a> ]
+      </p>
+      <?php endif ?>
 
-    <?= $post->render() ?>
+      <?= $post->render() ?>
+    </div>
 

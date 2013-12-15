@@ -3,17 +3,32 @@ pre {
  line-height: 25px;
 }
 
-.post h2.title {
-  margin: 0;
-  padding: 0;
-}
+.post {
+  h2.title {
+    margin: 0;
+    padding: 0;
 
-.post h2.title a {
-  text-decoration: none;
-  color: @font-heading-color;
+    &a {
+      text-decoration: none;
+      color: @font-heading-color;
+    }
+  }
+
+  code {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 1px 3px;
+    white-space: nowrap;
+  }
 }
 
 .article-author {
   margin: 45px inherit;
+
+  h3, p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
