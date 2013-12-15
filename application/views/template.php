@@ -62,6 +62,16 @@
     </div>
   </div>
 
+  <?php if ($flashNotice = $this->notifications->get()): ?>
+  <div class="grid-container">
+    <div class="grid-100">
+      <div class="flash-notice">
+        <?= $flashNotice['message'] ?>
+      </div>
+    </div>
+  </div>
+  <?php endif ?>
+
   <?= isset($yield) ? $yield : null ?>
 
   <script src="<?= base_url() ?>unsemantic/javascripts/jquery.js"></script>

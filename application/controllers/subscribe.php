@@ -20,6 +20,7 @@ class Subscribe extends CI_Controller
   {
     $email = $this->input->post('email', true);
     if (!$email || empty($email)) {
+      $this->notifications->add('Required email', 'error');
       redirect('subscribe');
     }
 
@@ -29,6 +30,7 @@ class Subscribe extends CI_Controller
     $result = $subscription->save();
 
     if (!$result) {
+      $this->notifications->add('Invalid email or email already exists', 'error');
       redirect('subscribe');
     }
 
