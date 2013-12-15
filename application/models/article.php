@@ -26,9 +26,9 @@ class Article extends Datamapper
     return site_url("{$this->slug}-{$this->id}/{$page}");
   }
 
-  function render()
+  function render($store = false, $force = false)
   {
-    if (!$this->render) {
+    if (!$this->render || $force) {
       $markdown = $this->contents;
 
       $html = \Michelf\Markdown::defaultTransform($markdown);
@@ -41,7 +41,10 @@ class Article extends Datamapper
       $html = preg_replace('/{{permalink-(.*)}}/', '/permalink-$1', $html);
 
       $this->render = $html;
-      $this->save();
+
+      if ($store) {
+        $this->save();
+      }
     }
 
     return $this->render;
