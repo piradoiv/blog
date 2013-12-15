@@ -4,14 +4,12 @@
     <div class="article-editor">
       <?= form_open("posts/update/{$post->id}") ?>
       <p>
-        <div class="grid-50">
-          <?= form_label('Title', 'title') ?>
-          <?= form_input('title', $post->title) ?>
-        </div>
-        <div class="grid-50">
-          <?= form_label('Subtitle', 'subtitle') ?>
-          <?= form_input('subtitle', $post->subtitle) ?>
-        </div>
+        <?= form_label('Title', 'title') ?>
+        <?= form_input('title', $post->title) ?>
+      </p>
+      <p>
+        <?= form_label('Subtitle', 'subtitle') ?>
+        <?= form_input('subtitle', $post->subtitle) ?>
       </p>
       <p>
         <?= form_label(base_url(), 'slug') ?>
