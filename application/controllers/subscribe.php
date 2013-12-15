@@ -30,7 +30,7 @@ class Subscribe extends CI_Controller
     $result = $subscription->save();
 
     if (!$result) {
-      $this->notifications->add('Invalid email or email already exists', 'error');
+      $this->notifications->add($subscription->error->string, 'error');
       redirect('subscribe');
     }
 
