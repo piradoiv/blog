@@ -28,6 +28,34 @@
 </head>
 <body>
 
+  <div class="grid-container">
+    <div class="grid-50 push-25">
+      <div id="header">
+        <div class="logo">
+          <a href="<?= base_url() ?>">
+            <img src="<?= base_url() ?>img/blog-icon.png" alt="Untitled" />
+          </a>
+        </div>
+        <div class="blog-name">
+          <h1><a href="<?= base_url() ?>">Gracias por el pescado</a></h1>
+          <h2 class="author-heading">Un blog de Ricardo Cruz</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php if ($flashNotice = $this->notifications->get()): ?>
+  <div class="grid-container">
+    <div class="grid-100">
+      <div class="flash-notice">
+        <?= $flashNotice['message'] ?>
+      </div>
+    </div>
+  </div>
+  <?php endif ?>
+
+  <?= isset($yield) ? $yield : null ?>
+
   <div id="navigation">
     <div class="grid-container">
       <div class="grid-100">
@@ -61,18 +89,6 @@
       </div>
     </div>
   </div>
-
-  <?php if ($flashNotice = $this->notifications->get()): ?>
-  <div class="grid-container">
-    <div class="grid-100">
-      <div class="flash-notice">
-        <?= $flashNotice['message'] ?>
-      </div>
-    </div>
-  </div>
-  <?php endif ?>
-
-  <?= isset($yield) ? $yield : null ?>
 
   <script src="<?= base_url() ?>unsemantic/javascripts/jquery.js"></script>
   <script src="<?= base_url() ?>js/app.js"></script>
