@@ -1,6 +1,6 @@
 
 <div class="grid-container">
-  <div class="grid-50 push-25">
+  <div class="grid-50 article-editor">
     <?= form_open("posts/update/{$post->id}") ?>
     <p>
       <?= form_label('Title', 'title') ?>
@@ -36,8 +36,11 @@
     </p>
     <?= form_close() ?>
   </div>
-  <div class="grid-50">
-
+  <div class="grid-50 article-preview">
   </div>
 </div>
+<script>
+  var articleId  = '<?= $post->id ?>';
+  var previewUrl = '<?= site_url("posts/preview/{$post->id}") ?>';
+</script>
 
