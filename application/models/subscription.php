@@ -5,7 +5,7 @@ class Subscription extends Datamapper
   public $validation = array(
     'email' => array(
       'label' => 'Email',
-      'rules' => 'required'
+      'rules' => array('required', 'unique', 'valid_email')
     )
   );
 

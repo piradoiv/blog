@@ -56,11 +56,11 @@ img {
   text-align: center;
 }
 
-#login-box label, #login-box input {
+#login-box label, #login-box input, .subscribe label, .subscribe input {
   display: block;
 }
 
-#login-box input {
+#login-box input, .subscribe input {
   width: 100%;
   text-align: center;
   font-size: 25px;
