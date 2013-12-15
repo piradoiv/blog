@@ -85,6 +85,7 @@ img {
 .CodeMirror {
   font-size: 14px;
   font-family: monospace;
+  font-weight: bold;
 }
 
 .article-editor {
