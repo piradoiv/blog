@@ -45,6 +45,7 @@ $route['(:any)-(:num)/edit']   = 'posts/edit/$2';
 $route['(:any)-(:num)/delete'] = 'posts/delete/$2';
 $route['@(:any)/new-post']     = 'posts/create';
 $route['@(:any)/drafts']       = 'posts/drafts';
+$route['@(:any)']              = 'profile/index/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
