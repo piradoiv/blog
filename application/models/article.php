@@ -30,9 +30,6 @@ class Article extends Datamapper
   {
     if (!$this->render) {
       $markdown = $this->contents;
-      $markdown = str_replace('###',   '#####', $markdown);
-      $markdown = str_replace('##',    '####', $markdown);
-      $markdown = str_replace('#',     '###', $markdown);
 
       $html = \Michelf\Markdown::defaultTransform($markdown);
       $html = str_replace('&amp;lt;', '&#60;', $html);
