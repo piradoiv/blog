@@ -31,6 +31,7 @@ class Users extends CI_Controller
     $user = new User;
     $user->email  = $this->input->post('email', true);
     $user->status = 'Invited';
+    $user->token  = do_hash(rand(0,9999));
     $user->save();
 
     redirect('users');
