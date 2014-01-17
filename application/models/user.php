@@ -12,8 +12,7 @@ class User extends Datamapper
     ),
     'password' => array(
       'field' => 'password',
-      'label' => 'Password',
-      'rules' => array('required')
+      'label' => 'Password'
     )
   );
 
