@@ -2,7 +2,7 @@
 
 class User extends Datamapper
 {
-  public $has_many = array('article');
+  public $has_many = array('article', 'permission', 'group');
 
   public $validation = array(
     'email' => array(

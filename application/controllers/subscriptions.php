@@ -5,6 +5,7 @@ class Subscriptions extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    $this->vault->permission('subscriptions');
   }
 
   public function index()
