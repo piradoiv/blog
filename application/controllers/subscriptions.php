@@ -15,10 +15,10 @@ class Subscriptions extends CI_Controller
 
     $data = array(
       'subscriptionsCounter' => $subscriptions->count(),
-      'drafts' => $drafts->select('id, title')
+      'drafts' => $drafts->select('id, subject')
                          ->where('status', 'Draft')
                          ->get(),
-      'recent' => $newsletters->select('id, title')
+      'recent' => $newsletters->select('id, subject')
                          ->where('status', 'Sent')
                          ->get()
     );

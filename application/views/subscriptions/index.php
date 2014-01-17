@@ -22,7 +22,7 @@
       <tbody>
         <?php foreach ($drafts as $current): ?>
         <tr>
-          <td><?= $current->title ?></td>
+          <td><?= $current->subject ?></td>
           <td>
             <a href="<?= site_url("newsletters/edit/{$current->id}") ?>">
               Edit
@@ -41,9 +41,7 @@
     <ul>
       <?php foreach ($recent as $current): ?>
         <li>
-          <a href=<?= site_url("newsletters/view/{$current->id}") ?>">
-            <?= $current->title ?>
-          </a>
+          <?= $current->subject ?>
        </li>
       <?php endforeach ?>
     </ul>
