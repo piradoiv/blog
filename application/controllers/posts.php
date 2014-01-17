@@ -28,6 +28,7 @@ class Posts extends CI_Controller
     if (!$this->vault->isLogged()) {
       show_404();
     }
+    $this->vault->permission('posts');
 
     $posts = new Article;
     $posts->order_by('id', 'desc')
@@ -69,6 +70,7 @@ class Posts extends CI_Controller
     if (!$this->vault->isLogged()) {
       show_404();
     }
+    $this->vault->permission('posts');
 
     $post = new Article($id);
     if ($id && !$post->exists()) {
@@ -89,6 +91,7 @@ class Posts extends CI_Controller
     if (!$this->vault->isLogged()) {
       show_404();
     }
+    $this->vault->permission('posts');
 
     $this->edit();
   }
@@ -98,6 +101,7 @@ class Posts extends CI_Controller
     if (!$this->vault->isLogged()) {
       show_404();
     }
+    $this->vault->permission('posts');
 
     $post = new Article($id);
     if ($id && !$post->exists()) {
@@ -133,6 +137,7 @@ class Posts extends CI_Controller
     if (!$this->vault->isLogged()) {
       show_404();
     }
+    $this->vault->permission('posts');
 
     $post = new Article($id);
 
@@ -151,6 +156,7 @@ class Posts extends CI_Controller
 
   public function preview()
   {
+    $this->vault->permission('posts');
     $post = new Article;
     $post->title    = $this->input->post('title', true);
     $post->subtitle = $this->input->post('subtitle', true);
